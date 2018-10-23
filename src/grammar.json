@@ -1,9 +1,58 @@
 {
   "name": "markdown",
   "rules": {
-    "source_file": {
-      "type": "STRING",
-      "value": "hello"
+    "root": {
+      "type": "REPEAT",
+      "content": {
+        "type": "SYMBOL",
+        "name": "_root"
+      }
+    },
+    "_root": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "link"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text"
+        }
+      ]
+    },
+    "link": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "["
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text"
+        },
+        {
+          "type": "STRING",
+          "value": "]"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "text": {
+      "type": "PATTERN",
+      "value": "[^\\[\\(\\]\\)]+"
     }
   },
   "extras": [
