@@ -4,7 +4,9 @@
   "description": "Markdown grammar for tree-sitter",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tree-sitter generate && node-gyp build",
+    "test": "tree-sitter test && script/parse-examples",
+    "test-windows": "tree-sitter test && tree-sitter parse examples --quiet --time"
   },
   "repository": {
     "type": "git",
