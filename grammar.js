@@ -2,7 +2,10 @@ module.exports = grammar({
   name: "markdown",
 
   rules: {
-    // The production rules of the context-free grammar
-    source_file: $ => "hello"
+    root: $ => repeat($._root),
+    _root: $ => choice($.link, $.text),
+    link: $ =>
+      seq("[", $.text, "]", "(", $.text, optional(seq('"', $.text, '"')), ")"),
+    text: $ => /[^\[\(\]\)"]+/
   }
 });
