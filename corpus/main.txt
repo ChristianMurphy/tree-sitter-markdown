@@ -11,3 +11,10 @@ Link
 [test](link) text
 ---
 (root (link (text) (text)) (text))
+
+===================================
+Link with title
+===================================
+[test](link "title")
+---
+(root (link (text) (text) (text)))

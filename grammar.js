@@ -4,7 +4,8 @@ module.exports = grammar({
   rules: {
     root: $ => repeat($._root),
     _root: $ => choice($.link, $.text),
-    link: $ => seq("[", $.text, "]", "(", $.text, ")"),
-    text: $ => /[^\[\(\]\)]+/
+    link: $ =>
+      seq("[", $.text, "]", "(", $.text, optional(seq('"', $.text, '"')), ")"),
+    text: $ => /[^\[\(\]\)"]+/
   }
 });

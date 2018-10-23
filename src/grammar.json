@@ -45,6 +45,31 @@
           "name": "text"
         },
         {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "\""
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "text"
+                },
+                {
+                  "type": "STRING",
+                  "value": "\""
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
           "type": "STRING",
           "value": ")"
         }
@@ -52,7 +77,7 @@
     },
     "text": {
       "type": "PATTERN",
-      "value": "[^\\[\\(\\]\\)]+"
+      "value": "[^\\[\\(\\]\\)\"]+"
     }
   },
   "extras": [
